@@ -1,2 +1,3 @@
 # beecrowd
-Exercícios do beecrowd
+Exercícios do beecrowd.
+
