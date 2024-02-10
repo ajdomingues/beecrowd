@@ -1,4 +1,5 @@
 # beecrowd
+# Exercícios JS e SQL
 Exercícios que fiz na plataforma do Beecrowd. Abaixo separei por linguagem.
 
 # JS
@@ -20,7 +21,8 @@ var a = parseInt(lines.shift());
 var b = parseInt(lines.shift());
 ```
 
-No JavaScript não é necessário colocar `;` no final da sintaxe, mas o Beecrowd exige isso para funcionar. Sempre que estiver descrito o nome de variáveis, retornos etc, que devem ser usadas, as descreva do mesmo jeito que foi proposto - levando em consideração até se é maiúsculo ou minúsculo - pois isso vai ser verificado isso também na validação do exercício.
+>[!NOTE]
+>No JavaScript não é necessário colocar `;` no final da sintaxe, mas o Beecrowd exige isso para funcionar. Sempre que estiver descrito o nome de variáveis, retornos etc, que devem ser usadas, as descreva do mesmo jeito que foi proposto - levando em consideração até se é maiúsculo ou minúsculo - pois isso vai ser verificado isso também na validação do exercício.
 
 ### 1000
 
@@ -110,7 +112,7 @@ Imprima a mensagem DIFERENCA com todas as letras maiúsculas, conforme exemplo a
 - Em seguida, criamos a variável `diferenca` e fazemos o cálculo dos valores.
 - Por último, exibimos a resposta no formato como é pedido no enunciado.
 
-```jsx
+```
 var input = require('fs').readFileSync('/dev/stdin', 'utf8');
 var lines = input.split('\n');
 var A = parseInt(lines.shift());
@@ -135,10 +137,8 @@ Imprima por extenso o nome do mês correspondente ao número existente na entrad
 - Agora usamos  um `swtich` para avaliarmos o que o usuário digitou.
     - Avaliamos as opções de 1 a 12. Por exemplo, se 1, devemos mostrar “January” e assim por diante até chegarmos a 12 com “December”.
 
-<aside>
-⚠️ Lembre-se que foi pedido os meses em inglês e sempre com a primeira letra em letra maiúscula.
-
-</aside>
+>[!IMPORTANT]
+>Lembre-se que foi pedido os meses em inglês e sempre com a primeira letra em letra maiúscula.
 
 Após cada validação, colocar o `break;`
 
@@ -186,10 +186,8 @@ switch (mes) {
 }
 ```
 
-<aside>
-💡 No mundo real, deveríamos colocar um `default` no final do `switch` , para evitar erros, para caso o usuário digitasse algo menor que 1 ou maior 12. Porém, nesse enunciado não foi pedido isso.
-
-</aside>
+>[!TIP]
+>No mundo real, deveríamos colocar um `default` no final do `switch` , para evitar erros, para caso o usuário digitasse algo menor que 1 ou maior 12. Porém, nesse enunciado não foi pedido isso.
 
 ### 1059
 
@@ -260,7 +258,7 @@ Leia 1 valor inteiro N (2 < N < 1000). A seguir, mostre a tabuada de N:
 - Vamos fazer a entrada do valor e já convertê-lo para inteiro usando o `parseInt`.
 - Usamos um laço de repetição `for` de 1 até 10 que ganha +1 a cada passagem do laço.
 - O `console.log` vai exibir os resultado a cada passagem do laço.
-    - Usamos template string - usando a nossa sintaxe dentro de crases/blackticks  ````  e `${ }` para formatarmos a nossa tabuada.
+    - Usamos template string - usando a nossa sintaxe dentro de crases/backticks  ````  e `${ }` para formatarmos a nossa tabuada.
     - Na primeira parte usamos o `${i}` para carregar a variável `i` - que usamos como contador do nosso laço de repetição -,  reaproveitamos ela pra formar o início da nossa tabuada.
     - Na segunda, colocamos o ‘x’ e o nosso número alvo (o número digitado pelo usuário), que colocamos dentro da variável `N`, ficando assim a chamada: `${N}`.
     - E na 3ª e última parte do `console.log`, colocamos o ‘ = ’ e fazemos o cálculo dentro do `${ }`. Que seria o contador atual (nesse caso, a variável `i`) * o número digitado pelo usuário, ou seja `N`: `${i * N}`.
@@ -335,7 +333,7 @@ WHERE city = 'Porto Alegre'
 
 **Problema:** O setor financeiro da empresa precisa de um relatório que mostre o **código** e o **nome** dos produtos **cujo preço** são **menores que 10** ou **maiores que 100**.
 
-- SELECT trazendo o código e o nome dos produtos - colunas id e **name**. Na tabela products.
+- `SELECT` trazendo o código e o nome dos produtos - colunas **id** e **name**. Na tabela products.
 - No `WHERE`, usamos o `OR` para validar as condições - nesse caso pede 1 condição ou outra. Então, o preço, coluna `price`, seja ou < 10 ou > 100.
 
 ```sql
@@ -457,10 +455,8 @@ No INNER JOIN, na parte do ON, precisamos explicar para o SQL quais são as colu
 INNER JOIN rentals rent ON (custo.id = rent.id_customers)
 ```
 
-<aside>
-💡 Nesse caso, tanto faz usar `JOIN` ou `INNER JOIN`.
-
-</aside>
+>[!NOTE]
+>Nesse caso, tanto faz usar `JOIN` ou `INNER JOIN`.
 
 - Por último, vamos colocar nas condições do `WHERE` o período que foi pedido no enunciado: setembro de 2016. Vamos usar o `BETWEEN`. O `BETWEEN` pede que você coloque os intervalos dentro de um `AND`. Para pegar todo o período de setembro, vamos informar do dia 1º ao último dia desse mês: de 01/09/2016 à 30/09/2016:
 
@@ -596,3 +592,8 @@ Por tanto você deve selecionar o **id**, a **senha atual** e a **senha transfor
 
 - Identificamos as colunas que precisamos: **`id`**, `password`, e a `MD5`.
     - Na função MD5, passamos em seu escopo o que desejamos transformar. Nesse caso, a coluna `password`.
+
+```sql
+SELECT id, password, MD5(password)
+FROM account
+```
