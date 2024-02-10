@@ -3,7 +3,8 @@ Exercícios que fiz na plataforma do Beecrowd. Abaixo separei por linguagem.
 
 # JS
 
-Para poder executar corretamente dentro do Beecrowd os exercícios em JS devem conter essas duas linhas no topo:
+> [!IMPORTANT]
+>Para poder executar corretamente dentro do Beecrowd os exercícios em JS devem conter essas duas linhas no topo:
 
 ```jsx
 var input = require("fs").readFileSync("/dev/stdin", "utf8");
@@ -109,7 +110,7 @@ Imprima a mensagem DIFERENCA com todas as letras maiúsculas, conforme exemplo a
 - Em seguida, criamos a variável `diferenca` e fazemos o cálculo dos valores.
 - Por último, exibimos a resposta no formato como é pedido no enunciado.
 
-```js
+```jsx
 var input = require('fs').readFileSync('/dev/stdin', 'utf8');
 var lines = input.split('\n');
 var A = parseInt(lines.shift());
@@ -118,34 +119,6 @@ var C = parseInt(lines.shift());
 var D = parseInt(lines.shift());
 var diferenca = (A * B - C * D);
 console.log("DIFERENCA = " + diferenca);
-```
-
-### 1067
-
-**Problema:** Leia um valor inteiro X (1 <= X <= 1000). Em seguida mostre os ímpares de 1 até X, um valor por linha, inclusive o X, se for o caso.
-
-Entrada
-O arquivo de entrada contém 1 valor inteiro qualquer.
-
-Saída
-Imprima todos os valores ímpares de 1 até X, inclusive X, se for o caso.
-
-- Entrada de dados já convertendo o valor pra inteiro usando o `parseInt`. Armazenamos na variável `X`.
-- Na sequência, usamos um laço de repetição for iniciando de 1 até o número alvo - digitado pelo usuário e gravamos em `X`. Foi colocado um ‘≤’ pois no enunciado pede pra incluir o próprio número digitado caso ele se encaixe na condição. Nosso contador é a variável `i` que inicia com 1 e ganha +1 a cada passagem do laço até que ele seja ≤ ao nosso número alvo guardado na `X`.
-    - Dentro do laço:
-        - Há um `if` que faz a validação da condição se o número é ímpar. Para saber se o número é par podemos usar um esquema de resto da divisão. Pegamos o valor atual do contador do laço e fazemos o processo de módulo por 2. Para par, se o resto da divisão for 0 é par; se for o contrário, é ímpar, então colocamos um `!==` para fazer a negação: `i % 2 !== 0`.
-        - Se verdadeiro, o `console.log` imprime o número do contador `i`.
-        - Se falso, volta e faz o laço novamente e analisa o próximo número.
-
-```jsx
-var input = require('fs').readFileSync('/dev/stdin', 'utf8');
-var lines = input.split('\n');    
-var X = parseInt(lines.shift());
-for(let i = 1; i <= X; i++){
-    if(i % 2 !== 0){
-        console.log(i);
-    }
-}
 ```
 
 ### 1052
@@ -214,7 +187,7 @@ switch (mes) {
 ```
 
 <aside>
-💡 No mundo real, deveríamos colocar um `default` no final do `switch` , para evitar erro, para caso o usuário digitasse ao menor que 1 ou maior 12. Porém, nesse enunciado não foi pedido isso.
+💡 No mundo real, deveríamos colocar um `default` no final do `switch` , para evitar erros, para caso o usuário digitasse algo menor que 1 ou maior 12. Porém, nesse enunciado não foi pedido isso.
 
 </aside>
 
@@ -236,6 +209,34 @@ Imprima todos os números pares entre 1 e 100, inclusive se for o caso, um em ca
 ```jsx
 for(let i = 1; i <= 100; i++){
     if(i % 2 == 0){
+        console.log(i);
+    }
+}
+```
+
+### 1067
+
+**Problema:** Leia um valor inteiro X (1 <= X <= 1000). Em seguida mostre os ímpares de 1 até X, um valor por linha, inclusive o X, se for o caso.
+
+Entrada
+O arquivo de entrada contém 1 valor inteiro qualquer.
+
+Saída
+Imprima todos os valores ímpares de 1 até X, inclusive X, se for o caso.
+
+- Entrada de dados já convertendo o valor pra inteiro usando o `parseInt`. Armazenamos na variável `X`.
+- Na sequência, usamos um laço de repetição for iniciando de 1 até o número alvo - digitado pelo usuário e gravamos em `X`. Foi colocado um ‘≤’ pois no enunciado pede pra incluir o próprio número digitado caso ele se encaixe na condição. Nosso contador é a variável `i` que inicia com 1 e ganha +1 a cada passagem do laço até que ele seja ≤ ao nosso número alvo guardado na `X`.
+    - Dentro do laço:
+        - Há um `if` que faz a validação da condição se o número é ímpar. Para saber se o número é par podemos usar um esquema de resto da divisão. Pegamos o valor atual do contador do laço e fazemos o processo de módulo por 2. Para par, se o resto da divisão for 0 é par; se for o contrário, é ímpar, então colocamos um `!==` para fazer a negação: `i % 2 !== 0`.
+        - Se verdadeiro, o `console.log` imprime o número do contador `i`.
+        - Se falso, volta e faz o laço novamente e analisa o próximo número.
+
+```jsx
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');    
+var X = parseInt(lines.shift());
+for(let i = 1; i <= X; i++){
+    if(i % 2 !== 0){
         console.log(i);
     }
 }
@@ -272,7 +273,6 @@ for (let i = 1; i <= 10; i++) {
     console.log(`${i} x ${N} = ${i * N}`);
 }
 ```
-
 
 # SQL
 
@@ -539,3 +539,60 @@ FROM customers custo
 JOIN orders ord ON (custo.id = ord.id_customers)
 WHERE ord.orders_date BETWEEN '2016-01-01' AND '2016-06-30'
 ```
+
+### 2623
+
+**Problema:** O setor de vendas precisa de um relatório para saber quais produtos estão sobrando em estoque.
+
+Para você ajudar o setor de vendas, exiba o **nome do produto** e o **nome da categoria**, para os produtos cuja **quantidade** seja **maior que 100** e o **código da categoria seja 1,2,3,6** ou **9**. Mostre essas informações em **ordem crescente** pelo **código da categoria**.
+
+- Utilizaremos as tabelas com seus apelidos: **products prod** e **categories cat**.
+- Apontamos no começo do `SELECT` as colunas que queremos exibir: `prod.name` e `cat.name`.
+- Indicamos no `JOIN` o relacionamento das tabelas `products` e `categories`.
+- No `WHERE` apontamos os filtros que queremos:
+    - Produtos com a quantidade, ou seja, a coluna `prod.amount` > 100.
+    - Para filtramos uma lista de itens para filtrar, usamos o `IN`. Categorias cujo o `id` estejam dentro da lista: 1, 2, 3, 6 ou 9.
+- Tudo ordenado por `cat.id`.
+
+```sql
+SELECT prod.name, cat.name
+FROM products prod
+JOIN categories cat ON (prod.id_categories = cat.id)
+WHERE prod.amount > 100
+AND cat.id IN (1,2,3,6,9)
+ORDER BY cat.id
+```
+
+Acima também poderíamos informar o complemento `ASC` para mostrar em ordem crescente:
+
+```sql
+ORDER BY cat.id ASC
+```
+
+Mas, quando é utilizado o `ORDER BY` e não é informado o padrão crescente `ASC` ou decrescentes `DESC` o sistema entendem que você deseja trazer em ordem crescente.
+
+### 2625
+
+**Problema:** Os diretores do setor de comunicação da sua empresa querem um relatório sobre os dados dos clientes físicos que estão cadastrados no banco de dados. Porem o antigo relatório teve um problema. Os dados do CPF dos clientes vieram sem a máscara.
+Por isso seu trabalho agora é selecionar todos os CPFs de todos os clientes, e aplicar uma máscara sobre o retorno dos dados.
+A máscara do CPF é parecida com: '000.000.000-00'.
+
+Vamos precisar usar uma substring. Para saber mais acesse [Substring]([SUBSTRING (Transact-SQL) - SQL Server | Microsoft Learn](https://learn.microsoft.com/pt-br/sql/t-sql/functions/substring-transact-sql?view=sql-server-ver16))
+
+`CONCAT` serve para juntar duas ou mais partes de informação. Dentro da sintaxe do `CONCAT` vamos chamar a `SUBSTRING` onde passamos a coluna alvo, nesse caso `cpf`. Precisamos inserir no retorno do `SELECT` 2 `.` e um `-`. Precisamos fazer isso aos poucos. Na primeira parte, à partir do 1 caractere contamos 3 caracteres (incluindo ele mesmo) e colocamos um `.`. Depois, entre o 4, contamos 3 caracteres e colocamos outro `.` . À partir do 7, contamos mais 3 e colocamos o `-`.  Depois é só finalizar com o restante dos caracteres.
+
+```sql
+SELECT CONCAT(SUBSTRING(cpf,1,3),'.',
+              SUBSTRING(cpf,4,3),'.',
+              SUBSTRING(cpf,7,3),'-',
+              SUBSTRING(cpf,10,2))
+FROM natural_person;
+```
+
+### 2744
+
+**Problema:** Você foi contratado para dar consultoria a uma empresa. Analisando o banco de dados você notou que as senhas gravadas dos usuários estão em formato de texto, sendo que isso pode gerar uma falha de segurança, uma vez que elas não estão criptografadas.
+Por tanto você deve selecionar o **id**, a **senha atual** e a **senha transformada em MD5** de cada usuário na tabela account.
+
+- Identificamos as colunas que precisamos: **`id`**, `password`, e a `MD5`.
+    - Na função MD5, passamos em seu escopo o que desejamos transformar. Nesse caso, a coluna `password`.
