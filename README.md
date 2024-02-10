@@ -98,6 +98,53 @@ var prod = a * b;
 console.log('PROD = '+ prod);
 ```
 
+### 1006
+
+**Problema:**  Leia 3 valores, no caso, variáveis A, B e C, que são as três notas de um aluno. A seguir, calcule a média do aluno, sabendo que a nota A tem peso 2, a nota B tem peso 3 e a nota C tem peso 5. Considere que cada nota pode ir de 0 até 10.0, sempre com uma casa decimal.
+
+Entrada
+O arquivo de entrada contém 3 valores com uma casa decimal, de dupla precisão (double).
+
+Saída
+Imprima a mensagem "MEDIA" e a média do aluno conforme exemplo abaixo, com 1 dígito após o ponto decimal e com um espaço em branco antes e depois da igualdade. Assim como todos os problemas, não esqueça de imprimir o fim de linha após o resultado, caso contrário, você receberá "Presentation Error".
+
+- Vamos pegar as 3 notas e gravar cada uma numa variável já convertendo usando o `parseFloat()`.
+- Na variável média, vamos fazer o cálculo quebrando em duas etapas:
+    - Primeiro multiplicamos cada nota com seus devidos pesos.
+    - Dividimos tudo por 10 pois é a soma dos pesos.
+- Depois, exibimos no `console.log`. O `toFixed` se encarrega de fazer o arredondamento solicitado.
+
+```jsx
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+let A = parseFloat(lines.shift());
+let B = parseFloat(lines.shift());
+let C = parseFloat(lines.shift());
+
+let media = ((A * 2) + (B * 3) + (C * 5)) / 10;
+console.log("MEDIA = " + media.toFixed(1));
+```
+
+Outro jeito de resolver:
+
+- Carregamos as notas num vetor.
+- Criamos 3 variáveis para guardar os valores dos pesos
+- Cálculo:
+    - Somamos os resultado da multiplicação de cada nota pelo seu peso
+    - Dividimos tudo pela soma dos pesos.
+
+```jsx
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+const [A, B, C] = lines;
+const pesoA = 2;
+const pesoB = 3;
+const pesoC = 5;
+
+const media = (A * pesoA + B * pesoB + C * pesoC) / (pesoA + pesoB + pesoC);
+console.log(`MEDIA = ${media.toFixed(1)}`);
+```
+
 ### 1007
 
 **Problema:** Leia quatro valores inteiros A, B, C e D. A seguir, calcule e mostre a diferença do produto de A e B pelo produto de C e D segundo a fórmula: DIFERENCA = (A * B - C * D).
