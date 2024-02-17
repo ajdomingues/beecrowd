@@ -1,3 +1,3 @@
-SELECT REPLACE(
-    name, 'H1', 'X')
-FROM virus;
+SELECT name, LENGTH(name) AS length
+FROM people
+ORDER BY length DESC;
