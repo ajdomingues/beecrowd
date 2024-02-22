@@ -53,4 +53,4 @@ Algumas pessoas põe letras aleatórias como a, b, c… ou somente a primeira le
 
 No `JOIN`, tenho a mania de colocar as condições do `ON` dentro de `( )`. Isso não faz diferença na hora de executar a query, mas acredito ficar mais organizado na hora de analisar a sintaxe.
 
-[ infobox tipo="note" titulo="Nota" texto="Texto da nota" ]
+[infobox tipo="note" titulo="Nota" texto="Texto da nota"]
