@@ -52,5 +52,3 @@ INNER JOIN providers prov ON (prod.id_providers = prov.id)
 Algumas pessoas põe letras aleatórias como a, b, c… ou somente a primeira letra do nome da tabela - o que dá certo também, mas pra outra pessoa analisar ou dar manutenção nessa query pode ser mais difícil identificar que tabela é aquela representado por ‘a’.
 
 No `JOIN`, tenho a mania de colocar as condições do `ON` dentro de `( )`. Isso não faz diferença na hora de executar a query, mas acredito ficar mais organizado na hora de analisar a sintaxe.
-
-[infobox tipo="note" titulo="Nota" texto="Texto da nota"]
