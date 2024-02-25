@@ -1,4 +1,3 @@
-USE wm;
 SELECT DISTINCT node_id, 
 (CASE
 WHEN pointer IS NULL THEN 'LEAF'
