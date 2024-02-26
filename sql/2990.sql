@@ -2,8 +2,8 @@ SELECT emp.cpf,emp.enome,dep.dnome
 FROM departamentos dep 
 JOIN  empregados emp ON (dep.dnumero = emp.dnumero)
 LEFT JOIN trabalha trab ON (trab.cpf_emp = emp.cpf)
-LEFT JOIN projetos proj ON (trab.pnumero = proj.pnumero)
-WHERE  proj.pnumero IS NULL
+LEFT JOIN projetos proj ON (proj.pnumero = trab.pnumero)
+WHERE proj.pnumero IS NULL
 ORDER BY emp.cpf;
 
 -- ou
