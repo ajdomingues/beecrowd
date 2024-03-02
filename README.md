@@ -1,5 +1,7 @@
 # beecrowd
 # Exercícios JS e SQL
+
+
 Exercícios que fiz na plataforma do Beecrowd. Abaixo separei por linguagem.
 
 Junto a cada exercício tem um arquivo markdown explicando o que foi utilizado para resolução.
@@ -14,7 +16,7 @@ var input = require("fs").readFileSync("/dev/stdin", "utf8");
 var lines = input.split("\n");
 ```
 
-Por padrão, essas duas linhas aparecem automaticamente na caixa pra responder. Mas caso não aparecem, coloque.
+Por padrão, essas duas linhas aparecem automaticamente na caixa pra responder quando você abre. Mas caso elas não aparecerem, coloque.
 
 À partir dela é que se faz a entrada de dados. Exemplo, pegar dois valores:
 
@@ -23,7 +25,7 @@ var a = parseInt(lines.shift());
 var b = parseInt(lines.shift());
 ```
 
->[!NOTE]
+> [!NOTE]
 >No JavaScript não é necessário colocar `;` no final da sintaxe, mas o Beecrowd exige isso para funcionar. Sempre que estiver descrito o nome de variáveis, retornos etc, que devem ser usadas, as descreva do mesmo jeito que foi proposto - levando em consideração até se é maiúsculo ou minúsculo - pois isso vai ser verificado isso também na validação do exercício.
 
 # SQL
@@ -37,11 +39,11 @@ FROM nomeDaTabela
 
 Isso não faz diferença na execução da query, mas ajuda a organizar a sintaxe.
 
-O Beecrowd até o momento só tem a  opção do do banco PostegreSQL, mas pra quem conhece Microsoft SQL, não vai ter dificuldade.
+O Beecrowd, até o momento, só tem a opção do do banco PostegreSQL, mas pra quem conhece Microsoft SQL ou MySQL não vai ter dificuldade.
 
 Pra quem usa MySQL e coloca por padrão o `;` no final da sintaxe, aqui pode por ou não que vai funcionar do mesmo jeito.
 
-Pra organizar a minha query, quando é necessário usar um **`INNER JOIN`**, pego o nome da tabela e crio um “apelido” que me lembre o nome da tabela. Por exemplo: a tabela products vira prod.  Esse apelido serve para evitar ambiguidades. Por exemplo: Você precisa fazer um `JOIN` entre as tabelas products e a providers e vai pegar o nome do produto na products e o nome do fornecedor na providers; pra isso você precisa pegar a coluna que traz o nome nas duas, que nesse caso seria a coluna **name**. Isso daria uma ambiguidade na hora de processar essa query; se você colocasse apenas name, o SQL não ia saber se você está falando da tabela produtcts ou providers. É aí que podemos usar os apelidos:
+Pra organizar a minha query, quando é necessário usar um **`INNER JOIN`**, pego o nome da tabela e crio um “apelido” que me lembre o nome da tabela. Por exemplo: a tabela `products` vira `prod`.  Esse apelido serve para evitar ambiguidades. Por exemplo: Você precisa fazer um `JOIN` entre as tabelas products e a providers e vai pegar o nome do produto na products e o nome do fornecedor na providers; pra isso você precisa pegar a coluna que traz o nome nas duas, que nesse caso seria a coluna **name**. Isso daria uma ambiguidade na hora de processar essa query; se você colocasse apenas name, o SQL não ia saber se você está falando da tabela produtcts ou providers. É aí que podemos usar os apelidos:
 
 ```sql
 SELECT prod.name, prov.name
