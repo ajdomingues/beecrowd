@@ -6,7 +6,7 @@ function calcularImposto(valor) {
     if (valor >= 0 && valor <= 2000) {
         return `Isento`
     } else if (valor > 2000 && valor <= 3000) {
-        impostoCalculado = (valor - 2000) * 0.8
+        impostoCalculado = (valor - 2000) * 0.08
         return `R$ ${(impostoCalculado).toFixed(2)}`
     } else if (valor > 3000 && valor <= 4500) {
         impostoCalculado = (1000 * 0.08) + ((valor - 3000) * 0.18)
