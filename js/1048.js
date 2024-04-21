@@ -36,7 +36,3 @@ switch (true) {
 console.log(`Novo salario: ${novoSalario.toFixed(2)}
 Reajuste ganho: ${reajusteGanho.toFixed(2)}
 Em percentual: ${percentual} %`);
-
-percentual = 10;
-reajusteGanho = salario * (percentual / 100);
-novoSalario = salario + reajusteGanho;
