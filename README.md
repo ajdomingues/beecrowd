@@ -5,6 +5,8 @@
 Exercícios que fiz na plataforma do Beecrowd. Abaixo separei por linguagem.
 
 Junto a cada exercício tem um arquivo markdown explicando o que foi utilizado para resolução.
+# CS
+
 
 # JS
 
@@ -26,7 +28,7 @@ var b = parseInt(lines.shift());
 ```
 
 > [!NOTE]
->No JavaScript não é necessário colocar `;` no final da sintaxe, mas o Beecrowd exige isso para funcionar. Sempre que estiver descrito o nome de variáveis, retornos etc, que devem ser usadas, as descreva do mesmo jeito que foi proposto - levando em consideração até se é maiúsculo ou minúsculo - pois isso vai ser verificado isso também na validação do exercício.
+>No JavaScript não é necessário colocar `;` no final da sintaxe, mas o Beecrowd exige isso para funcionar. Sempre que estiver descrito o nome de variáveis, retornos, etc, que devem ser usadas, as descreva do mesmo jeito que foi proposto - levando em consideração até se é maiúsculo ou minúsculo - pois isso vai ser verificado isso também na validação do exercício.
 
 # SQL
 
