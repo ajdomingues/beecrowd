@@ -1,12 +1,19 @@
 # beecrowd
-# Exercícios JS e SQL
-
+# Exercícios C#, JS e SQL
 
 Exercícios que fiz na plataforma do Beecrowd. Abaixo separei por linguagem.
 
 Junto a cada exercício tem um arquivo markdown explicando o que foi utilizado para resolução.
-# CS
-
+# C#
+O Beecrowd já inputa na tela os elementos básicos do escopo do C#, bastando colocar dentro do main o seu código:
+```cs
+using System; 
+class URI {
+    static void Main(string[] args) { 
+//seu código aqui
+    }
+}
+```
 
 # JS
 
