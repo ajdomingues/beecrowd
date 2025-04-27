@@ -1,0 +1,16 @@
+String line = Console.ReadLine();
+string[] area = line.Split(' ');
+double A = double.Parse(area[0]);
+double B = double.Parse(area[1]);
+double C = double.Parse(area[2]);
+double pi = 3.14159;
+double trianguloRetangulo = (A * C) / 2;
+double circulo = pi * Math.Pow(C, 2);
+double trapezio = ((A + B) * C) / 2;
+double quadrado = B * B;
+double retangulo = A * B;
+Console.WriteLine($"TRIANGULO: {trianguloRetangulo.ToString("0.000")}");
+Console.WriteLine($"CIRCULO: {circulo.ToString("0.000")}");
+Console.WriteLine($"TRAPEZIO: {trapezio.ToString("0.000")}");
+Console.WriteLine($"QUADRADO: {quadrado.ToString("0.000")}");
+Console.WriteLine($"RETANGULO: {retangulo.ToString("0.000")}");
