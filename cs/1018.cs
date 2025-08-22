@@ -1,5 +1,5 @@
 int valor = int.Parse(Console.ReadLine());
-Console.WriteLine(valor);
+
 int notas100 = 0;
 int notas50 = 0;
 int notas20 = 0;
